@@ -1,15 +1,89 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
 
-    <!-- jQuery library -->
+    <link rel="stylesheet" href="{% static "/bootstrap/dist/css/bootstrap.min.css" %}"> </link>
+
+    <style>
+    .gcontainer {
+        width: 100px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .gauge {
+        width: 100px;
+        height: 100px;
+    }
+
+    a:link.button,
+    a:active.button,
+    a:visited.button,
+    a:hover.button {
+        margin: 30px 5px 0 2px;
+        padding: 7px 13px;
+    }
+    </style>
+</head>
+ <body>
+    <div class="container-fluid">
+      <div class="row">
+        <main class="col-sm-12 offset-sm-3 col-md-12 offset-md-1 pt-4">
+          <h1>Dashboard</h1>
+
+          <section class="row text-center placeholders">
+
+            <div class="col-1 col-sm-3">
+                <div id="g1" class="gauge"></div>
+            </div>
+
+            <div class="col-1 col-sm-3">
+                <div id="g2" class="gauge"></div>
+            </div>
+
+            <div class="col-1 col-sm-3">
+                <div id="g3" class="gauge"></div>
+            </div>
+
+            <div class="col-1 col-sm-3">
+                <div id="g4" class="gauge"></div>
+            </div>
+
+            <div class="col-1 col-sm-3">
+                <div id="g5" class="gauge"></div>
+            </div>
+
+            <div class="col-1 col-sm-3">
+                <div id="g6" class="gauge"></div>
+            </div>
+
+             <div class="col-1 col-sm-3">
+                <div id="g7" class="gauge"></div>
+            </div>
+
+          </section>
+
+          <h2>Section title</h2>
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Gage JS -->
+    <script src="{% static "/js/justgage.js" %}" ></script>
+
+    <!-- Gage JS -->
+    <script src="{% static "/js/raphael_2.1.4.min.js" %}" ></script>
+
+     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- Popper JS -->
@@ -18,40 +92,125 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-</head>
- <body>
-    <div class="container-fluid">
-      <div class="row">
-        <main class="col-sm-12 offset-sm-3 col-md-10 offset-md-1 pt-4">
-          <h1>Dashboard</h1>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
 
-          <section class="row text-center placeholders">
-            <div class="col-6 col-sm-3 placeholder">
-              <h4>Label</h4>
-              <div class="text-muted">Something else</div>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </section>
+      var g1, g2, g3, g4, g5, g6, g7;
 
-          <h2>Section title</h2>
+      var g1 = new JustGage({
+        id: "g1",
+        value: 3.65,
+        min: 0,
+        max: 5,
+		decimals: 2,
+        title: "Agronomy",
+        label: "",
 
-        </main>
-      </div>
-    </div>
+        levelColors: [
+          "#ff0000",
+          "#dddd04",
+          "#21ff00"
+        ]
+      });
+
+       var g2 = new JustGage({
+        id: "g2",
+        value: 4.65,
+        min: 0,
+        max: 5,
+		decimals: 2,
+        title: "Political Stability",
+        label: "",
+
+        levelColors: [
+          "#ff0000",
+          "#dddd04",
+          "#21ff00"
+        ]
+      });
+
+            var g3 = new JustGage({
+        id: "g3",
+        value: 3.65,
+        min: 0,
+        max: 5,
+		decimals: 2,
+        title: "Agronomy",
+        label: "",
+
+        levelColors: [
+          "#ff0000",
+          "#dddd04",
+          "#21ff00"
+        ]
+      });
+
+            var g4 = new JustGage({
+        id: "g4",
+        value: 3.65,
+        min: 0,
+        max: 5,
+		decimals: 2,
+        title: "Agronomy",
+        label: "",
+
+        levelColors: [
+          "#ff0000",
+          "#dddd04",
+          "#21ff00"
+        ]
+      });
+
+            var g5 = new JustGage({
+        id: "g5",
+        value: 3.65,
+        min: 0,
+        max: 5,
+		decimals: 2,
+        title: "Agronomy",
+        label: "",
+
+        levelColors: [
+          "#ff0000",
+          "#dddd04",
+          "#21ff00"
+        ]
+      });
+
+            var g6 = new JustGage({
+        id: "g6",
+        value: 3.65,
+        min: 0,
+        max: 5,
+		decimals: 2,
+        title: "Agronomy",
+        label: "",
+
+        levelColors: [
+          "#ff0000",
+          "#dddd04",
+          "#21ff00"
+        ]
+      });
+
+            var g7 = new JustGage({
+        id: "g7",
+        value: 3.65,
+        min: 0,
+        max: 5,
+		decimals: 2,
+        title: "Agronomy",
+        label: "",
+
+        levelColors: [
+          "#ff0000",
+          "#dddd04",
+          "#21ff00"
+        ]
+      });
+
+    });
+    </script>
   </body>
 </html>
 
