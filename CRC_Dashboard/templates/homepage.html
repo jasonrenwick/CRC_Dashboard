@@ -20,8 +20,8 @@
     }
 
     .gauge {
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
     }
 
     a:link.button,
@@ -34,47 +34,56 @@
     </style>
 </head>
  <body>
-    <div class="container-fluid">
-      <div class="row">
-        <main class="col-sm-12 offset-sm-3 col-md-12 offset-md-1 pt-4">
-          <h1>Dashboard</h1>
+    <div class="container">
+      <div class="row"  align="center">
+        <main class="col-sm-10 offset-sm-3 col-md-12 offset-md-1 pt-4">
+          <h1>KPI Indicators</h1>
 
           <section class="row">
 
             <div class="col">
-                <div id="g1" class="gauge"></div>
+                <div id="g1" class="gauge" ></div>
+                <span  class="text-muted" >Farmer's required farm activities to meet beneficiaries expectation</span>
             </div>
 
             <div class="col">
                 <div id="g2" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
             </div>
 
             <div class="col">
                 <div id="g3" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
             </div>
 
             <div class="col">
                 <div id="g4" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
             </div>
           </section>
 
-           <section class="row align-center">
+           <section class="row">
 
             <div class="col">
                 <div id="g5" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
             </div>
 
             <div class="col">
                 <div id="g6" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
             </div>
 
              <div class="col">
                 <div id="g7" class="gauge"></div>
+                 <span>Farmer's required farm activities to meet beneficiaries expectation</span>
             </div>
 
              <div class="col">
                 <div id="g8" class="gauge"></div>
+                 <span>Farmer's required farm activities to meet beneficiaries expectation</span>
             </div>
+
           </section>
 
           <h2>Section title</h2>
@@ -105,11 +114,11 @@
 
       var g1 = new JustGage({
         id: "g1",
-        value: 3.65,
+        value: 1,
         min: 0,
         max: 5,
 		decimals: 2,
-        title: "Farmer",
+        title: "Beneficiaries Expectations",
         label: "",
 
         levelColors: [
@@ -121,11 +130,11 @@
 
        var g2 = new JustGage({
         id: "g2",
-        value: 4.65,
+        value: 1.5,
         min: 0,
         max: 5,
 		decimals: 2,
-        title: "Political Stability",
+        <!--title: "Farmer's required farm activities to meet beneficiaries expectations",-->
         label: "",
 
         levelColors: [
@@ -137,11 +146,11 @@
 
             var g3 = new JustGage({
         id: "g3",
-        value: 3.65,
+        value: 2,
         min: 0,
         max: 5,
 		decimals: 2,
-        title: "Agronomy",
+        <!--title: "Governance and social responsibility for farm performance excellence",-->
         label: "",
 
         levelColors: [
@@ -153,11 +162,11 @@
 
             var g4 = new JustGage({
         id: "g4",
-        value: 3.65,
+        value: 2.5,
         min: 0,
         max: 5,
 		decimals: 2,
-        title: "Agronomy",
+        <!--title: "Farmer's market access and flexibility",-->
         label: "",
 
         levelColors: [
@@ -169,11 +178,11 @@
 
             var g5 = new JustGage({
         id: "g5",
-        value: 3.65,
+        value: 3,
         min: 0,
         max: 5,
 		decimals: 2,
-        title: "Agronomy",
+        <!--title: "Farmer's value addition",-->
         label: "",
 
         levelColors: [
@@ -185,11 +194,11 @@
 
             var g6 = new JustGage({
         id: "g6",
-        value: 3.65,
+        value: 3.5,
         min: 0,
         max: 5,
 		decimals: 2,
-        title: "Agronomy",
+        <!--title: "Risk Management",-->
         label: "",
 
         levelColors: [
@@ -201,11 +210,11 @@
 
             var g7 = new JustGage({
         id: "g7",
-        value: 3.65,
+        value: 4,
         min: 0,
         max: 5,
 		decimals: 2,
-        title: "Agronomy",
+        <!--title: "Farmer's results",-->
         label: "",
 
         levelColors: [
@@ -216,12 +225,12 @@
       });
 
        var g8 = new JustGage({
-        id: "g7",
-        value: 3.65,
+        id: "g8",
+        value: 4.5,
         min: 0,
         max: 5,
 		decimals: 2,
-        title: "Agronomy",
+        <!--title: "Agronomy",-->
         label: "",
 
         levelColors: [
