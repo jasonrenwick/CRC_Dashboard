@@ -33,87 +33,140 @@
     }
 
     .top-buffer { margin-top:20px; }
+
+    .my-small-btn {
+    width:50%;
+    padding:5px;
+}
     </style>
 </head>
- <body>
-    <div class="container">
+<body>
+<div class="container">
 
-      <div class="row"  align="center">
-        <main class="col-sm-12">
+    <main class="col-lg-12 text-center">
 
-          <h1>KPI Indicators</h1>
+        <div class="row">
 
-          <section class="row">
+            <h1>KPI Indicators</h1>
 
-            <div class="col-sm-3">
-                <div id="g1" class="gauge" ></div>
-                <span  class="text-muted" >Farmer's required farm activities to meet beneficiaries expectation</span>
-            </div>
+            <section class="row " >
 
-            <div class="col-sm-3">
-                <div id="g2" class="gauge"></div>
-                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-            </div>
+                <div class="col-lg-3">
+                    <div id="g1" class="gauge" ></div>
+                    <span  class="text-muted" >Farmer's required farm activities to meet beneficiaries expectation</span>
+                </div>
 
-            <div class="col-sm-3">
-                <div id="g3" class="gauge"></div>
-                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-            </div>
+                <div class="col-lg-3">
+                    <div id="g2" class="gauge"></div>
+                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+                </div>
 
-            <div class="col-sm-3">
-                <div id="g4" class="gauge"></div>
-                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-            </div>
-          </section>
+                <div class="col-lg-3">
+                    <div id="g3" class="gauge"></div>
+                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+                </div>
 
-           <section class="row">
+                <div class="col-lg-3">
+                    <div id="g4" class="gauge"></div>
+                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+                </div>
+            </section>
 
-            <div class="col-sm-3">
-                <div id="g5" class="gauge"></div>
-                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-            </div>
+            <section class="row">
 
-            <div class="col-sm-3">
-                <div id="g6" class="gauge"></div>
-                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-            </div>
+                <div class="col-lg-3">
+                    <div id="g5" class="gauge"></div>
+                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+                </div>
 
-             <div class="col-sm-3">
-                <div id="g7" class="gauge"></div>
-                 <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-            </div>
+                <div class="col-lg-3">
+                    <div id="g6" class="gauge"></div>
+                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+                </div>
 
-             <div class="col-sm-3">
-                <div id="g8" class="gauge"></div>
-                 <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-            </div>
+                <div class="col-lg-3">
+                    <div id="g7" class="gauge"></div>
+                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+                </div>
 
-          </section>
+                <div class="col-lg-3">
+                    <div id="g8" class="gauge"></div>
+                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+                </div>
+
+            </section>
             <span class="row top-buffer"> </span>
             <h1>Database Search</h1>
+        </div>
 
-        </main>
-      </div>
+        <div>
+            <form class="form-signin" id="login_form" method="post" action="">
+                {% csrf_token %}
+
+                <br>
+                <input type="text" name="user" class="form-control" placeholder="Farm or Farmer Name, e.g: Jason Renwick or Nature Valley Farm" value="" required autofocus>
+                <br>
+                <button class="btn btn-lg btn-primary btn-block my-small-btn" type="submit">Get Data</button>
+            </form>
+
+            <h2 class="text-center"> Farmer Data </h2>
 
 
-    </div>
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped tablesorter">
+                        <thead>
+                        <tr>
+                            <th class="header"> Farm ID <i class="icon-sort"></i></th>
+                            <th class="header"> Primary Farmer <i class="icon-sort"></i></th>
+                            <th class="header"> Acreage <i class="icon-sort"></i></th>
+                            <th class="header"> Yield <i class="icon-sort"></i></th>
+                            <th class="header"> Location <i class="icon-sort"></i></th>
+                            <th class="header"> Six Sigma Score <i class="icon-sort"></i></th>
+                            <th class="header"> KPI Score <i class="icon-sort"></i></th>
+                        </tr>
+                        </thead>
 
-    <!-- Gage JS -->
-    <script src="{% static "/js/justgage.js" %}" ></script>
+                        <tbody>
+
+                        {% for key in data %}
+                        <tr>
+                            <td>{{ key.name }}</td>
+                            <td>{{ key.blog }}</td>
+                            <td>{{ key.public_repos }}</td>
+                            <td>{{ key.public_gists }}</td>
+                            <td>{{ key.email }}</td>
+                            <td>{{ key.followers }}</td>
+                            <td>{{ key.following }}</td>
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+<!-- Gage JS -->
+<script src="{% static "/js/justgage.js" %}" ></script>
 
     <!-- Gage JS -->
     <script src="{% static "/js/raphael_2.1.4.min.js" %}" ></script>
 
-     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <script>
+<script>
     document.addEventListener("DOMContentLoaded", function(event) {
 
       var g1, g2, g3, g4, g5, g6, g7;
@@ -248,6 +301,6 @@
 
     });
     </script>
-  </body>
+</body>
 </html>
 
