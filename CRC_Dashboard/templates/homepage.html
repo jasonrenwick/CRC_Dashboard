@@ -14,21 +14,21 @@
 
     <style>
     .gcontainer {
-        width: 100px;
+        width: 150px;
         margin: 0 auto;
         text-align: center;
     }
 
     .gauge {
-        width: 100px;
-        height: 100px;
+        width: 250px;
+        height: 250px;
     }
 
     a:link.button,
     a:active.button,
     a:visited.button,
     a:hover.button {
-        margin: 30px 5px 0 2px;
+        margin: 10px 5px 0 2px;
         padding: 7px 13px;
     }
     </style>
@@ -39,36 +39,42 @@
         <main class="col-sm-12 offset-sm-3 col-md-12 offset-md-1 pt-4">
           <h1>Dashboard</h1>
 
-          <section class="row text-center placeholders">
+          <section class="row">
 
-            <div class="col-1 col-sm-3">
+            <div class="col">
                 <div id="g1" class="gauge"></div>
             </div>
 
-            <div class="col-1 col-sm-3">
+            <div class="col">
                 <div id="g2" class="gauge"></div>
             </div>
 
-            <div class="col-1 col-sm-3">
+            <div class="col">
                 <div id="g3" class="gauge"></div>
             </div>
 
-            <div class="col-1 col-sm-3">
+            <div class="col">
                 <div id="g4" class="gauge"></div>
             </div>
+          </section>
 
-            <div class="col-1 col-sm-3">
+           <section class="row align-center">
+
+            <div class="col">
                 <div id="g5" class="gauge"></div>
             </div>
 
-            <div class="col-1 col-sm-3">
+            <div class="col">
                 <div id="g6" class="gauge"></div>
             </div>
 
-             <div class="col-1 col-sm-3">
+             <div class="col">
                 <div id="g7" class="gauge"></div>
             </div>
 
+             <div class="col">
+                <div id="g8" class="gauge"></div>
+            </div>
           </section>
 
           <h2>Section title</h2>
@@ -103,7 +109,7 @@
         min: 0,
         max: 5,
 		decimals: 2,
-        title: "Agronomy",
+        title: "Farmer",
         label: "",
 
         levelColors: [
@@ -194,6 +200,22 @@
       });
 
             var g7 = new JustGage({
+        id: "g7",
+        value: 3.65,
+        min: 0,
+        max: 5,
+		decimals: 2,
+        title: "Agronomy",
+        label: "",
+
+        levelColors: [
+          "#ff0000",
+          "#dddd04",
+          "#21ff00"
+        ]
+      });
+
+       var g8 = new JustGage({
         id: "g7",
         value: 3.65,
         min: 0,
