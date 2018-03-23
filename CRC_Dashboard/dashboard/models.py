@@ -9,9 +9,5 @@ class FarmBenExpec(models.Model):
     flavour = models.IntegerField(db_column='Flavour', blank=True, null=True)  # Field name made lowercase.
     consistency = models.IntegerField(db_column='Consistency', blank=True, null=True)  # Field name made lowercase.
 
-    class Meta:
-        managed = False
-        db_table = 'farm_ben_expec'
-
     def __str__(self):
         return self.idfarm_ben_expec
