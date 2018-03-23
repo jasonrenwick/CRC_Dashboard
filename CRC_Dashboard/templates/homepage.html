@@ -32,7 +32,7 @@
         padding: 7px 13px;
     }
 
-    .top-buffer { margin-top:20px; }
+    .top-buffer { margin-top:50px; }
 
     .my-small-btn {
     width:50%;
@@ -41,113 +41,117 @@
     </style>
 </head>
 <body>
-<div class="container">
-
-    <main class="col-lg-12 text-center">
-
-        <div class="row">
-
-            <h1>KPI Indicators</h1>
-
-            <section class="row " >
-
-                <div class="col-lg-3">
-                    <div id="g1" class="gauge" ></div>
-                    <span  class="text-muted" >Farmer's required farm activities to meet beneficiaries expectation</span>
-                </div>
-
-                <div class="col-lg-3">
-                    <div id="g2" class="gauge"></div>
-                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-                </div>
-
-                <div class="col-lg-3">
-                    <div id="g3" class="gauge"></div>
-                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-                </div>
-
-                <div class="col-lg-3">
-                    <div id="g4" class="gauge"></div>
-                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-                </div>
-            </section>
-
-            <section class="row">
-
-                <div class="col-lg-3">
-                    <div id="g5" class="gauge"></div>
-                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-                </div>
-
-                <div class="col-lg-3">
-                    <div id="g6" class="gauge"></div>
-                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-                </div>
-
-                <div class="col-lg-3">
-                    <div id="g7" class="gauge"></div>
-                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-                </div>
-
-                <div class="col-lg-3">
-                    <div id="g8" class="gauge"></div>
-                    <span>Farmer's required farm activities to meet beneficiaries expectation</span>
-                </div>
-
-            </section>
-            <span class="row top-buffer"> </span>
-            <h1>Database Search</h1>
-        </div>
-
-        <div>
-            <form class="form-signin" id="login_form" method="post" action="">
-                {% csrf_token %}
-
-                <br>
-                <input type="text" name="user" class="form-control" placeholder="Farm or Farmer Name, e.g: Jason Renwick or Nature Valley Farm" value="" required autofocus>
-                <br>
-                <button class="btn btn-lg btn-primary btn-block my-small-btn" type="submit">Get Data</button>
-            </form>
-
-            <h2 class="text-center"> Farmer Data </h2>
 
 
-            <div class="col-lg-12">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-striped tablesorter">
-                        <thead>
-                        <tr>
-                            <th class="header"> Farm ID <i class="icon-sort"></i></th>
-                            <th class="header"> Primary Farmer <i class="icon-sort"></i></th>
-                            <th class="header"> Acreage <i class="icon-sort"></i></th>
-                            <th class="header"> Yield <i class="icon-sort"></i></th>
-                            <th class="header"> Location <i class="icon-sort"></i></th>
-                            <th class="header"> Six Sigma Score <i class="icon-sort"></i></th>
-                            <th class="header"> KPI Score <i class="icon-sort"></i></th>
-                        </tr>
-                        </thead>
+<main>
 
-                        <tbody>
+    <div class="container ">
 
-                        {% for key in data %}
-                        <tr>
-                            <td>{{ key.name }}</td>
-                            <td>{{ key.blog }}</td>
-                            <td>{{ key.public_repos }}</td>
-                            <td>{{ key.public_gists }}</td>
-                            <td>{{ key.email }}</td>
-                            <td>{{ key.followers }}</td>
-                            <td>{{ key.following }}</td>
-                        </tr>
-                        {% endfor %}
+        <h1 class="top-buffer text-center">KPI Indicators</h1>
 
-                        </tbody>
-                    </table>
-                </div>
+        <section class="row"  >
+
+            <div class="col-lg-3" align="center">
+                <div id="g1" class="gauge" ></div>
+                <span  class="text-muted" >Farmer's required farm activities to meet beneficiaries expectation</span>
             </div>
-        </div>
-    </main>
-</div>
+
+            <div class="col-lg-3" align="center">
+                <div id="g2" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+            </div>
+
+            <div class="col-lg-3" align="center">
+                <div id="g3" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+            </div>
+
+            <div class="col-lg-3" align="center">
+                <div id="g4" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+            </div>
+        </section>
+
+        <section class="row">
+
+            <div class="col-lg-3" align="center">
+                <div id="g5" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+            </div>
+
+            <div class="col-lg-3" align="center">
+                <div id="g6" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+            </div>
+
+            <div class="col-lg-3" align="center">
+                <div id="g7" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+            </div>
+
+            <div class="col-lg-3" align="center">
+                <div id="g8" class="gauge"></div>
+                <span>Farmer's required farm activities to meet beneficiaries expectation</span>
+            </div>
+
+        </section >
+
+        <section class="text-center">
+            <h1 class = "top-buffer">Database Search</h1>
+
+
+            <div class="col-lg-6 mx-auto">
+                <form class="form-signin" id="login_form" method="post" action="">
+                    {% csrf_token %}
+
+                    <br >
+                    <input type="text" name="user" class="form-control" placeholder="Farm or Farmer Name, e.g: Jason Renwick or Nature Valley Farm" value="" required autofocus>
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Get Data</button>
+                </form>
+            </div>
+        </section >
+
+        <!--<h2 class="text-center"> Farmer Data </h2>-->
+
+
+        <!--<div class="col-lg-12">-->
+        <!--<div class="table-responsive">-->
+        <!--<table class="table table-bordered table-hover table-striped tablesorter">-->
+        <!--<thead>-->
+        <!--<tr>-->
+        <!--<th class="header"> Farm ID <i class="icon-sort"></i></th>-->
+        <!--<th class="header"> Primary Farmer <i class="icon-sort"></i></th>-->
+        <!--<th class="header"> Acreage <i class="icon-sort"></i></th>-->
+        <!--<th class="header"> Yield <i class="icon-sort"></i></th>-->
+        <!--<th class="header"> Location <i class="icon-sort"></i></th>-->
+        <!--<th class="header"> Six Sigma Score <i class="icon-sort"></i></th>-->
+        <!--<th class="header"> KPI Score <i class="icon-sort"></i></th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+
+        <!--<tbody>-->
+
+        <!--{% for key in data %}-->
+        <!--<tr>-->
+        <!--<td>{{ key.name }}</td>-->
+        <!--<td>{{ key.blog }}</td>-->
+        <!--<td>{{ key.public_repos }}</td>-->
+        <!--<td>{{ key.public_gists }}</td>-->
+        <!--<td>{{ key.email }}</td>-->
+        <!--<td>{{ key.followers }}</td>-->
+        <!--<td>{{ key.following }}</td>-->
+        <!--</tr>-->
+        <!--{% endfor %}-->
+
+        <!--</tbody>-->
+        <!--</table>-->
+        <!--</div>-->
+        <!--</div>-->
+
+
+    </div>
+</main>
 
 
 
