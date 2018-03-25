@@ -1,13 +1,25 @@
 from django.db import models
 
 
-class Scores(models.Model):
-    farmerid = models.IntegerField(primary_key=True, max_length=1)
+class Farmbenexpec(models.Model):
+    farmerID = models.CharField(max_length=5)
     flavour = models.IntegerField()
+    consistency = models.IntegerField()
 
-    class Meta:
-        managed = False
-        db_table = 'scores'
 
-    def __str__(self):
-        return self.idfarm_ben_expec
+class Farmben(models.Model):
+    flav = models.IntegerField()
+    consist = models.IntegerField()
+
+    # def __str__(self):
+    #     return self.flav
+
+
+
+    # class Meta:
+    #     app_label = 'dashboard'
+    #     managed = False
+    #     # db_table = 'scores'
+    #
+    # def __str__(self):
+    #     return self.farmerID
