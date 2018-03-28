@@ -2,8 +2,13 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Farmben
 
-admin.site.register(Farmben)
+from .models import Criterions
+from .models import Criteria
+from .models import Farmerscores
 
-# Register your models here.
+admin.site.register(Criterions)
+admin.site.register(Criteria)
+admin.site.register(Farmerscores)
+
+   # Register your models here.
