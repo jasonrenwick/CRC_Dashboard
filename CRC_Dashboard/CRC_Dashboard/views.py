@@ -3,6 +3,7 @@ from dashboard.models import Farmer_a_score
 from dashboard.models import Farmer_b_score
 from dashboard.models import a_Element
 from dashboard.models import b_Element
+from dashboard.models import Farmer
 from django.db.models import Avg
 import numpy
 
@@ -67,14 +68,36 @@ def dashboard(request, farmer):
     A_score = A_score / a_Element.objects.count()
 
     industry = Farmer_b_score.objects.filter(farmerID=farmer)
+    if not industry:
+        context = {
+            'farmer': farmer,
+        }
+        return render(request, "error.html", context)
+
     B_score = float(industry[0].B1) + float(industry[0].B2) + float(industry[0].B3) + float(industry[0].B4) + float(industry[0].B5)
     B_score = B_score / b_Element.objects.count()
 
     Avg_score = numpy.mean([A_score, B_score])
 
+    industry = Farmer.objects.filter(farmerID=farmer)
+    if not industry:
+        context = {
+            'farmer': farmer,
+        }
+        return render(request, "error.html", context)
+
+    farmer_name = industry[0].Name
+    farmer_location = industry[0].Location
+    farmer_region = industry[0].Region
+    farmer_country = industry[0].Country
+
     context = {
             'A_score': A_score,
             'B_score': B_score,
             'Avg_score': Avg_score,
+            'farmer_name': farmer_name,
+            'farmer_location': farmer_location,
+            'farmer_region': farmer_region,
+            'farmer_country': farmer_country,
             }
     return render(request, "dashboard.html", context)

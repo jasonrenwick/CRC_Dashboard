@@ -52,7 +52,7 @@
 
     <div class="container ">
 
-        <h1 class="top-buffer text-center">KPI Indicators</h1>
+        <h1 class="top-buffer text-center">KPI Indicators for Cocoa Industry</h1>
 
         <section class="row"  >
 
@@ -105,16 +105,32 @@
             <h1 class = "top-buffer">Database Search</h1>
 
 
-            <div class="col-lg-6 mx-auto">
-                <form class="form-signin" id="login_form" method="post" action="">
-                    {% csrf_token %}
+<script type="text/javascript">
+    function goToPage() {
+        var page = document.getElementById('page').value;
+        window.location = "http://127.0.0.1:8000/" + page;
+    }
+</script>
 
+<!--<input type="text" id="page" />-->
+<!--<input type="submit" value="submit" onclick="goToPage();" />-->
+
+            <div class="col-lg-6 mx-auto">
                     <br >
-                    <input type="text" name="user" class="form-control" placeholder="Farm or Farmer Name, e.g: Jason Renwick or Nature Valley Farm" value="" required autofocus>
+                    <input type="text" id="page" class="form-control" placeholder="Enter 4 digit Farmer ID" value="">
                     <br>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Get Data</button>
-                </form>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="goToPage();">Get Data</button>
             </div>
+
+                        <!--<div class="col-lg-6 mx-auto">-->
+                <!--<form class="taskitem_form" id="scores" method="post" action="/search">-->
+                    <!--<br >-->
+                    <!--<input type="text" name="farmer" class="form-control" placeholder="Enter 4 digit Farmer ID" value="">-->
+                    <!--<br>-->
+                    <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Get Data</button>-->
+                <!--</form>-->
+            <!--</div>-->
+
         </section >
 
         <!--<h2 class="text-center"> Farmer Data </h2>-->
@@ -198,7 +214,7 @@
 
        var g2 = new JustGage({
         id: "g2",
-        value: 1.5,
+        value: {{B_score}},
         min: 0,
         max: 5,
 		decimals: 2,
@@ -294,7 +310,7 @@
 
        var g8 = new JustGage({
         id: "g8",
-        value: 4.5,
+        value: {{Avg_score}},
         min: 0,
         max: 5,
 		decimals: 2,

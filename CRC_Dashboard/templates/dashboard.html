@@ -38,6 +38,22 @@
     width:50%;
     padding:5px;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
     </style>
 </head>
 <body>
@@ -47,7 +63,7 @@
 
     <div class="container ">
 
-        <h1 class="top-buffer text-center">KPI Indicators</h1>
+        <h1 class="top-buffer text-center">KPI Indicators for {{farmer_name}} </h1>
 
         <section class="row"  >
 
@@ -96,21 +112,57 @@
 
         </section >
 
-        <!--<section class="text-center">-->
-            <!--<h1 class = "top-buffer">Database Search</h1>-->
+                <section class="text-center">
+            <h1 class = "top-buffer">Farmer Info</h1>
+
+<table>
+  <tr>
+    <th>Atrribute</th>
+    <th>Value</th>
+  </tr>
+
+  <tr>
+    <td>Name</td>
+    <td>{{farmer_name}}</td>
+  </tr>
+  <tr>
+    <td>Location</td>
+    <td>{{farmer_location}}</td>
+  </tr>
+  <tr>
+    <td>Region</td>
+    <td>{{farmer_region}}</td>
+  </tr>
+  <tr>
+    <td>Country</td>
+    <td>{{farmer_country}}</td>
+  </tr>
+</table>
+
+        </section >
 
 
-            <!--<div class="col-lg-6 mx-auto">-->
-                <!--<form class="form-signin" id="login_form" method="post" action="">-->
-                    <!--{% csrf_token %}-->
+        <section class="text-center">
+            <h1 class = "top-buffer">Database Search</h1>
 
-                    <!--<br >-->
-                    <!--<input type="text" name="user" class="form-control" placeholder="Farm or Farmer Name, e.g: Jason Renwick or Nature Valley Farm" value="" required autofocus>-->
-                    <!--<br>-->
-                    <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Get Data</button>-->
-                <!--</form>-->
-            <!--</div>-->
-        <!--</section >-->
+
+            <script type="text/javascript">
+    function goToPage() {
+        var page = document.getElementById('page').value;
+        window.location = "http://127.0.0.1:8000/" + page;
+    }
+</script>
+
+<!--<input type="text" id="page" />-->
+<!--<input type="submit" value="submit" onclick="goToPage();" />-->
+
+            <div class="col-lg-6 mx-auto">
+                    <br >
+                    <input type="text" id="page" class="form-control" placeholder="Enter 4 digit Farmer ID" value="">
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="goToPage();">Get Data</button>
+            </div>
+        </section >
 
         <!--<h2 class="text-center"> Farmer Data </h2>-->
 
@@ -177,7 +229,7 @@
 
       var g1 = new JustGage({
         id: "g1",
-        value: 1,
+        value: {{A_score}},
         min: 0,
         max: 5,
 		decimals: 2,
@@ -193,7 +245,7 @@
 
        var g2 = new JustGage({
         id: "g2",
-        value: 1.5,
+        value: {{B_score}},
         min: 0,
         max: 5,
 		decimals: 2,
@@ -289,7 +341,7 @@
 
        var g8 = new JustGage({
         id: "g8",
-        value: 4.5,
+        value: {{Avg_score}},
         min: 0,
         max: 5,
 		decimals: 2,

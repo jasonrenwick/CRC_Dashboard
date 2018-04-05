@@ -1,7 +1,17 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
-class Element(models.Model):
+class a_Element(models.Model):
+    elementID = models.CharField(max_length=3)
+    element_weight = models.IntegerField()
+    element_text = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.elementID
+
+
+class b_Element(models.Model):
     elementID = models.CharField(max_length=3)
     element_weight = models.IntegerField()
     element_text = models.CharField(max_length=500)
@@ -18,13 +28,86 @@ class Criteria(models.Model):
         return self.criteria
 
 
-class Farmerscore(models.Model):
+class Farmer_a_score(models.Model):
     farmerID = models.CharField(max_length=4)
-    A1 = models.IntegerField()
-    A2 = models.IntegerField()
-    A3 = models.IntegerField()
-    A4 = models.IntegerField()
-    A5 = models.IntegerField()
+    A1 = models. IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+     )
+    A2 = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+     )
+    A3 = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+     )
+    A4 = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+     )
+    A5 = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+     )
+
+
+    def __str__(self):
+        return self.farmerID
+
+
+class Farmer_b_score(models.Model):
+    farmerID = models.CharField(max_length=4)
+    B1 = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+     )
+    B2 = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+     )
+    B3 = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+     )
+    B4 = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+     )
+    B5 = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+     )
 
     def __str__(self):
         return self.farmerID
