@@ -1,13 +1,13 @@
 from django.db import models
 
 
-class Criterions(models.Model):
-    criterionID = models.CharField(max_length=3)
-    criterion_weight = models.IntegerField()
-    criterion_text = models.CharField(max_length=500)
+class Element(models.Model):
+    elementID = models.CharField(max_length=3)
+    element_weight = models.IntegerField()
+    element_text = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.criterionID
+        return self.elementID
 
 
 class Criteria(models.Model):
@@ -18,7 +18,7 @@ class Criteria(models.Model):
         return self.criteria
 
 
-class Farmerscores(models.Model):
+class Farmerscore(models.Model):
     farmerID = models.CharField(max_length=4)
     A1 = models.IntegerField()
     A2 = models.IntegerField()
@@ -30,15 +30,13 @@ class Farmerscores(models.Model):
         return self.farmerID
 
 
-    # def __str__(self):
-    #     return self.flav
+class Farmer(models.Model):
+    farmerID = models.CharField(max_length=4)
+    Name = models.CharField(max_length=40)
+    Location = models.CharField(max_length=40)
+    Region = models.CharField(max_length=40)
+    Country = models.CharField(max_length=40)
 
+    def __str__(self):
+        return self.Name
 
-
-    # class Meta:
-    #     app_label = 'dashboard'
-    #     managed = False
-    #     # db_table = 'scores'
-    #
-    # def __str__(self):
-    #     return self.farmerID

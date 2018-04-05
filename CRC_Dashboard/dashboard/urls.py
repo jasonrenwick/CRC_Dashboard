@@ -18,8 +18,5 @@ from django.contrib import admin
 import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.homepage,  name='homepage'),
-    url(r'^dashboard', views.dashboard,  name='dashboard')
-    # url(r'^(?P<farmerID>[0-9]+)/$', views.detail, name='detail')
+    url(r'^$', views.dashboard,  name='dashboard')
 ]
