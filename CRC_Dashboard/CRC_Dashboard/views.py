@@ -23,6 +23,9 @@ def homepage(request):
     industry = Farmer_a_score.objects.aggregate(Avg('A5'))
     A5_Avg = industry['A5__avg']
 
+    A_avg = A1_Avg + A2_Avg + A3_Avg + A4_Avg + A5_Avg
+    A_avg = A_avg / a_Element.objects.count()
+
     industry = Farmer_b_score.objects.aggregate(Avg('B1'))
     B1_Avg = industry['B1__avg']
 
@@ -37,9 +40,6 @@ def homepage(request):
 
     industry = Farmer_b_score.objects.aggregate(Avg('B5'))
     B5_Avg = industry['B5__avg']
-
-    A_avg = A1_Avg + A2_Avg + A3_Avg + A4_Avg + A5_Avg
-    A_avg = A_avg / a_Element.objects.count()
 
     B_avg = B1_Avg + B2_Avg + B3_Avg + B4_Avg + B5_Avg
     B_avg = B_avg / b_Element.objects.count()
