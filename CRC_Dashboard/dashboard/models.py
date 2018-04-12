@@ -23,9 +23,23 @@ class b_Element(models.Model):
 class Criteria(models.Model):
     criteria = models.CharField(max_length=1)
     criteria_weight = models.IntegerField()
+    criteria_min_range = models.IntegerField(
+        default=0,
+        validators=[
+            MaxValueValidator(100),
+            MinValueValidator(0)
+        ]
+     )
+    criteria_max_range = models.IntegerField(
+        default=5,
+        validators=[
+            MaxValueValidator(100),
+            MinValueValidator(0)
+        ]
+     )
 
     def __str__(self):
-        return self.criteria
+        return self.criteria +' -- weight: '+ str(self.criteria_weight) +' -- Range: '+ str(self.criteria_min_range) +':'+ str(self.criteria_max_range)
 
 
 class Farmer_a_score(models.Model):
@@ -122,4 +136,8 @@ class Farmer(models.Model):
 
     def __str__(self):
         return self.farmerID +' - '+ self.Name
+
+
+
+
 
