@@ -128,7 +128,7 @@ class Farmer_b_score(models.Model):
 
 
 class Farmer(models.Model):
-    farmerID = models.CharField(max_length=4)
+    farmerID = models.CharField(primary_key=True, max_length=4)
     Name = models.CharField(max_length=40)
     Location = models.CharField(max_length=40)
     Region = models.CharField(max_length=40)
