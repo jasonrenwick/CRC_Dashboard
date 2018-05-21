@@ -8,6 +8,14 @@ from django.db.models import Avg
 from dashboard.models import Criteria
 import numpy
 
+def value_test(value, subject):
+    if isinstance(value, int) & isinstance(subject, int):
+        if subject == value:
+            return 1
+        return subject
+    return 1
+
+
 def homepage(request):
     industry = Farmer_a_score.objects.aggregate(Avg('A1'))
     A1_Avg = industry['A1__avg']
@@ -28,7 +36,7 @@ def homepage(request):
 
     A_avg = A1_Avg + A2_Avg + A3_Avg + A4_Avg + A5_Avg
     A_avg = A_avg * Weighting_A[0].criteria_weight
-    A_avg = A_avg / a_Element.objects.count()
+    A_avg = A_avg / value_test(0, a_Element.objects.count())
 
     industry = Farmer_b_score.objects.aggregate(Avg('B1'))
     B1_Avg = industry['B1__avg']
@@ -49,7 +57,7 @@ def homepage(request):
 
     B_avg = B1_Avg + B2_Avg + B3_Avg + B4_Avg + B5_Avg
     B_avg = B_avg * Weighting_B[0].criteria_weight
-    B_avg = B_avg / b_Element.objects.count()
+    B_avg = B_avg / value_test(0, b_Element.objects.count())
 
     Avg_score = numpy.mean([A_avg, B_avg])
 
@@ -77,7 +85,9 @@ def dashboard(request, farmer):
         return render(request, "error.html", context)
 
     A_score = float(industry[0].A1) + float(industry[0].A2) + float(industry[0].A3) + float(industry[0].A4) + float(industry[0].A5)
-    A_score = A_score / a_Element.objects.count()
+    A_score = A_score / value_test(0, a_Element.objects.count())
+
+
 
     industry = Farmer_b_score.objects.filter(farmerID=farmer)
     if not industry:
@@ -87,7 +97,7 @@ def dashboard(request, farmer):
         return render(request, "error.html", context)
 
     B_score = float(industry[0].B1) + float(industry[0].B2) + float(industry[0].B3) + float(industry[0].B4) + float(industry[0].B5)
-    B_score = B_score / b_Element.objects.count()
+    B_score = B_score / value_test(0, b_Element.objects.count())
 
     Avg_score = numpy.mean([A_score, B_score])
 

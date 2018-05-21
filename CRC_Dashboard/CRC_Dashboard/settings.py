@@ -55,7 +55,7 @@ ROOT_URLCONF = 'CRC_Dashboard.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': ['/home/jrenwick/CRC_Dashboard/CRC_Dashboard/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,26 +74,27 @@ WSGI_APPLICATION = 'CRC_Dashboard.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'dash_scores',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'scores',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'NAME': 'jrenwick_crc',
+        'USER': 'jrenwick_jason',
+        'PASSWORD': 'crc_jason',
+        'HOST': 'jrenwick.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
 
     }
 }
+
+
+#DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'dash_scores',
+#    }
+# }
 
 
 # Password validation
@@ -132,7 +133,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = '/home/jrenwick/public_html/static'
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = ['static'
-]
+STATICFILES_DIRS = ['static']
+
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
