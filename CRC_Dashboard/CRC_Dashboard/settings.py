@@ -55,7 +55,7 @@ ROOT_URLCONF = 'CRC_Dashboard.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/jrenwick/CRC_Dashboard/CRC_Dashboard/templates'],
+        'DIRS': ['/home/pi/CRC_Dashboard/CRC_Dashboard/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'CRC_Dashboard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jrenwick_crc',
-        'USER': 'jrenwick_jason',
-        'PASSWORD': 'crc_jason',
+        'NAME': 'jrenwic1_crc',
+        'USER': 'jrenwic1_jason',
+        'PASSWORD': 'password',
         'HOST': 'jrenwick.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
         'OPTIONS': {
